@@ -2,14 +2,15 @@
 import {FlatList, StyleSheet, Text, View} from "react-native";
 import NoteItem from "@/components/NoteItem";
 
-const NoteList = ({notes, onDelete}:{notes:[]}) => {
+const NoteList = ({notes, onDelete, onEdit}:{notes:[]}) => {
     return(
         <FlatList data={notes}
                   keyExtractor={(item) => item.$id}
                   renderItem ={({item}) => (
 <NoteItem note={item}
 
-onDelete={onDelete}/>
+onDelete={onDelete}
+onEdit={onEdit}/>
                   )}
         />
     )

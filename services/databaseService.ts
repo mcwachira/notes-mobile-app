@@ -25,6 +25,14 @@ async createDocument(dbId: string, colId:string, data, id=null): Promise<Documen
 },
 
     //update Documents
+    async updateDocument(dbId: string, colId:string, id, data): Promise<Document> {
+     try {
+         return await database.updateDocument(dbId, colId, id, data);
+     }catch (error){
+         console.error("Error creating document:", error.message);
+         return {error:error.message}
+     }
+    },
 
     //delete documents
 
