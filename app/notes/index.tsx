@@ -10,12 +10,18 @@ import {
     ActivityIndicator
 } from "react-native";
 import {useEffect, useState} from "react";
+import {useRouter} from "expo-router";
 import NoteList from "@/components/NoteList";
 import AddNoteModal from "@/components/AddNoteModal";
 import noteService from "@/services/noteService";
+import {useAuth} from "@/context/AuthContext";
 
 const NoteScreen = () => {
 
+
+    const router = useRouter();
+
+    const {user, loading:authLoading} = useAuth();
     const [notes, setNotes] = useState([])
 
     const [modalVisible, setModalVisible] = useState<boolean>(false)
@@ -25,8 +31,19 @@ const NoteScreen = () => {
 
 
     useEffect(() => {
-        fetchNotes();
-    },[])
+
+        if(!authLoading && !user){
+            router.replace("/auth")
+        }
+    }, [user, authLoading]);
+
+    useEffect(() => {
+
+        if(user){
+            fetchNotes();
+        }
+
+    },[user])
 
     const fetchNotes = async() => {
         setLoading(true);
