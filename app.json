@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/post-it.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mcwachira.notesmobileapp"
+      "package": "com.mcwachira.notesmobileapp",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
