@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/post-it.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.mcwachira.notesmobileapp"
